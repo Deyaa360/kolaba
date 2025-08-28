@@ -47,6 +47,39 @@ Kolaba is a premier platform that bridges the gap between skincare brands and Tu
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## 🔄 Development Workflow
+
+### Daily Development Process:
+1. **Start development server:** `npm run dev`
+2. **Make your changes** to components, pages, or styles
+3. **Test locally** at http://localhost:3000
+4. **Save to local Git** when satisfied:
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   ```
+5. **Continue developing** and repeat steps 2-4
+6. **Push to GitHub** when ready to backup/share:
+   ```bash
+   git push
+   ```
+
+### Common Commands:
+```bash
+# Development
+npm run dev                    # Start local server
+npm run build                  # Build for production
+
+# Git workflow
+git status                     # Check what changed
+git add .                      # Stage all changes
+git commit -m "Your message"   # Save to local Git
+git push                       # Backup to GitHub
+
+# Repository management
+gh repo view --web            # Open GitHub repo in browser
+```
+
 ## 🏗️ Project Structure
 
 \`\`\`
