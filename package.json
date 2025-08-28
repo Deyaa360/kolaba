@@ -1,0 +1,35 @@
+{
+  "name": "kolaba",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "description": "Kolaba - Connecting brands with content creators for UGC",
+  "keywords": [
+    "ugc",
+    "content-creators",
+    "brands",
+    "marketing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.16",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.542.0",
+    "next": "^15.5.2",
+    "postcss": "^8.4.31",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Kolaba — UGC for Skincare Brands</title>
+  <meta name="description" content="Creator-made UGC for skincare brands in Turkey. Fast, affordable, premium content for ads, PDP and social." />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <meta name="theme-color" content="#0e0f12" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a href="#main" class="visually-hidden-focusable">Skip to content</a>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav">
+    <div class="container nav__row">
+      <a href="#" class="brand" aria-label="Kolaba">
+        <span class="logo-word">kolaba</span>
+        <!-- optional icon (shows on small screens); create the file in step 3 -->
+        <img class="logo-icon" src="images/logo-icon.svg" alt="" aria-hidden="true" />
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about" data-i18n="about_title">About Kolaba</a>
+        <a href="#how" data-i18n="how_title">How it works</a>
+        <a href="#why" data-i18n="why_title">Why Kolaba</a>
+        <a href="#ugc" data-i18n="ugc_title">Recent UGC</a>
+        <a href="#contact" data-i18n="contact_title">Work with us</a>
+      </nav>
+
+      <div class="nav__right">
+        <button class="lang-pill" data-lang="en">EN</button>
+        <button class="lang-pill" data-lang="tr">TR</button>
+
+        <button class="hamburger" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile drawer -->
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="#about" data-i18n="about_title">About Kolaba</a>
+      <a href="#how" data-i18n="how_title">How it works</a>
+      <a href="#why" data-i18n="why_title">Why Kolaba</a>
+      <a href="#ugc" data-i18n="ugc_title">Recent UGC</a>
+      <a href="#contact" data-i18n="contact_title">Work with us</a>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home" style="--hero-img:url('images/hero-06.jpg')">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="headline" data-i18n="hero_title">Creator-made UGC for skincare brands in Turkey</h1>
+          <p class="sub" data-i18n="hero_sub">Fast, affordable, premium content that sells.</p>
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--primary" data-i18n="cta_talk">Talk to us</a>
+            <a href="#ugc" class="btn" data-i18n="cta_view_work">See our work</a>
+          </div>
+          <ul class="chips">
+            <li data-i18n="trust_1">50+ creators in Turkey</li>
+            <li data-i18n="trust_2">3–7 day delivery</li>
+            <li data-i18n="trust_3">Ad-ready for Meta & TikTok</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container layout-split">
+        <div class="col col--content">
+          <h2 data-i18n="about_title">About Kolaba</h2>
+          <p data-i18n="about_p1">Kolaba connects skincare brands with a vetted pool of Turkish micro-creators to produce high-performing UGC: short videos and photos crafted for ads, product pages, and social.</p>
+          <p data-i18n="about_p2">We focus on speed, creative quality, and performance. You brief us once—we handle casting, direction, and delivery.</p>
+
+          <h3 data-i18n="about_deliver_title">What we deliver</h3>
+          <ul class="bullets">
+            <li data-i18n="about_deliver_1">Hook-driven 15–45s videos (ad-ready, vertical).</li>
+            <li data-i18n="about_deliver_2">Short product explainers and before/after style demos.</li>
+            <li data-i18n="about_deliver_3">3–8 high-quality photos per video set for PDP and socials.</li>
+            <li data-i18n="about_deliver_4">Captions, on-screen text, and export for Meta/TikTok.</li>
+          </ul>
+
+          <h3 data-i18n="about_focus_title">What we’re best at</h3>
+          <ul class="bullets">
+            <li data-i18n="about_focus_1">Acne, oil control, pores, texture, sensitivity.</li>
+            <li data-i18n="about_focus_2">Serums (Niacinamide, Salicylic, Vitamin C), cleansers, SPF.</li>
+            <li data-i18n="about_focus_3">Routine storytelling (AM/PM), ingredient education, claims clarity.</li>
+          </ul>
+        </div>
+
+        <aside class="col col--rail">
+          <div class="k-matrix">
+            <div><strong data-i18n="about_stat_1n">50+ creators</strong><span data-i18n="about_stat_1t">vetted in Turkey</span></div>
+            <div><strong data-i18n="about_stat_2n">3–7 days</strong><span data-i18n="about_stat_2t">typical delivery</span></div>
+            <div><strong data-i18n="about_stat_3n">Ad-ready</strong><span data-i18n="about_stat_3t">Meta & TikTok</span></div>
+          </div>
+          <p class="about-cta">
+            <a href="#contact" class="btn btn--primary" data-i18n="about_cta">Ask for packages & pricing</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section id="how" class="section">
+      <div class="container layout-split">
+        <div class="col col--content">
+          <h2 data-i18n="how_title">How it works</h2>
+          <ol class="steps">
+            <li data-i18n="how_step1_t"><strong>1) Brief</strong> — share goals, product, and platforms</li>
+            <ul class="bullets">
+              <li data-i18n="how_step1_b1">Tell us your KPI (CTR, CPA, PDP dwell, etc.) and audience.</li>
+              <li data-i18n="how_step1_b2">Pick angles: routine, demo, testimonial, ingredient-led.</li>
+              <li data-i18n="how_step1_b3">Ship product to creator or send assets if virtual demo is fine.</li>
+            </ul>
+
+            <li data-i18n="how_step2_t"><strong>2) Match & script</strong> — we shortlist creators and write hooks</li>
+            <ul class="bullets">
+              <li data-i18n="how_step2_b1">Shortlist matched by skin type/tone, vibe, camera presence.</li>
+              <li data-i18n="how_step2_b2">3–6 opening hooks + CTA frames aligned to your claim-safe copy.</li>
+              <li data-i18n="how_step2_b3">You approve creator + script in one pass.</li>
+            </ul>
+
+            <li data-i18n="how_step3_t"><strong>3) Shoot</strong> — creator records per brief</li>
+            <ul class="bullets">
+              <li data-i18n="how_step3_b1">Natural light, clean audio, readable on-screen text sizes.</li>
+              <li data-i18n="how_step3_b2">Framing for 9:16 by default; 1:1/16:9 on request.</li>
+              <li data-i18n="how_step3_b3">Raw takes kept for alternates and future edits.</li>
+            </ul>
+
+            <li data-i18n="how_step4_t"><strong>4) Edit</strong> — cuts, captions, compliance</li>
+            <ul class="bullets">
+              <li data-i18n="how_step4_b1">Beat-matched cuts, branded CTA card, safe language review.</li>
+              <li data-i18n="how_step4_b2">Readable captions/subtitles; color & audio leveling.</li>
+              <li data-i18n="how_step4_b3">Export presets for Meta/TikTok; filenames you can track.</li>
+            </ul>
+
+            <li data-i18n="how_step5_t"><strong>5) Deliver & iterate</strong> — test, learn, repeat</li>
+            <ul class="bullets">
+              <li data-i18n="how_step5_b1">1–2 revision rounds within 5 business days.</li>
+              <li data-i18n="how_step5_b2">We suggest next hooks based on your early performance.</li>
+              <li data-i18n="how_step5_b3">Usage: ads + web + organic for 3 months (extendable).</li>
+            </ul>
+          </ol>
+        </div>
+
+        <aside class="col col--rail">
+          <div class="k-matrix k-matrix--compact">
+            <div><strong data-i18n="how_stat_1n">Day 0</strong><span data-i18n="how_stat_1t">Brief & creator shortlist</span></div>
+            <div><strong data-i18n="how_stat_2n">Day 1–2</strong><span data-i18n="how_stat_2t">Script & approval</span></div>
+            <div><strong data-i18n="how_stat_3n">Day 3–5</strong><span data-i18n="how_stat_3t">Shoot & edit</span></div>
+            <div><strong data-i18n="how_stat_4n">Day 6–7</strong><span data-i18n="how_stat_4t">Delivery & revisions</span></div>
+          </div>
+          <p class="about-cta">
+            <a href="#contact" class="btn btn--primary" data-i18n="how_cta">Book a pilot</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" class="section">
+      <div class="container layout-split">
+        <div class="col col--content">
+          <h2 data-i18n="why_title">Why Kolaba</h2>
+          <ul class="bullets">
+            <li data-i18n="why_p1"><strong>Beauty-native creators:</strong> we handpick talent who know skincare language and compliance rules.</li>
+            <li data-i18n="why_p2"><strong>Performance-first scripting:</strong> iterative hooks, CTAs, and frameworks aligned with paid social best practices.</li>
+            <li data-i18n="why_p3"><strong>Reliable delivery:</strong> transparent timelines, revisions included, ad-ready formats every time.</li>
+          </ul>
+
+          <h3 data-i18n="why_ext_title">What makes us different</h3>
+          <ul class="bullets">
+            <li data-i18n="why_ext_1">100% focus on skincare & beauty — no generic creator marketplace.</li>
+            <li data-i18n="why_ext_2">Compliance-checked copy: clear, claim-safe, no medical promises.</li>
+            <li data-i18n="why_ext_3">Affordable packages vs. agencies; faster turnaround than in-house.</li>
+            <li data-i18n="why_ext_4">Creators across skin types, tones, and routines — inclusive by design.</li>
+            <li data-i18n="why_ext_5">Ad-ready outputs tested across Meta, TikTok, PDPs.</li>
+          </ul>
+        </div>
+
+        <aside class="col col--rail">
+          <div class="k-matrix">
+            <div><strong data-i18n="why_stat_1n">50+</strong><span data-i18n="why_stat_1t">skincare creators</span></div>
+            <div><strong data-i18n="why_stat_2n">7 days</strong><span data-i18n="why_stat_2t">typical delivery</span></div>
+            <div><strong data-i18n="why_stat_3n">100%</strong><span data-i18n="why_stat_3t">claim-safe content</span></div>
+          </div>
+          <p class="about-cta">
+            <a href="#contact" class="btn btn--primary" data-i18n="why_cta">Why not start with a pilot?</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- UGC -->
+    <section id="ugc" class="section">
+      <div class="container">
+        <h2 data-i18n="ugc_title">Recent UGC</h2>
+        <div class="grid grid--reels">
+          <video class="vid" controls loop playsinline preload="metadata" poster="images/ugc1.jpg">
+            <source src="videos/ugc1.mp4" type="video/mp4" />
+          </video>
+          <video class="vid" controls loop playsinline preload="metadata" poster="images/ugc2.jpg">
+            <source src="videos/ugc2.mp4" type="video/mp4" />
+          </video>
+          <video class="vid" controls loop playsinline preload="metadata" poster="images/ugc3.jpg">
+            <source src="videos/ugc3.mp4" type="video/mp4" />
+          </video>
+          <video class="vid" controls loop playsinline preload="metadata" poster="images/ugc4.jpg">
+            <source src="videos/ugc4.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 data-i18n="contact_title">Work with us</h2>
+        <p data-i18n="contact_body">
+          Email us at <a href="mailto:hello@kolaba.live">hello@kolaba.live</a> or WhatsApp to book a pilot.
+        </p>
+        <p><a class="btn btn--primary" href="mailto:hello@kolaba.live">hello@kolaba.live</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="year"></span> Kolaba</small>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>.nav__drawer{display:none!important}.hamburger{display:none!important}</style>
+    JavaScript is required for language switching and navigation.
+  </noscript>
+
+  <script src="app.js"></script>
+</body>
+</html>
