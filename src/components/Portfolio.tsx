@@ -1,247 +1,303 @@
 'use client'
 
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { Play, ExternalLink } from 'lucide-react'
+import { Play, Heart, Share2, MessageCircle, TrendingUp, Users, Eye, Camera, Video, Instagram, Clock, Award } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Portfolio() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [activeTab, setActiveTab] = useState('photos')
+  const [activeCategory, setActiveCategory] = useState('all')
 
-  const portfolioItems = {
-    photos: [
-      {
-        src: '/images/ugc1.jpg',
-        title: 'Skincare Routine Flat Lay',
-        creator: 'Ayşe Kaya',
-        brand: 'GlowSkin',
-        engagement: '12.5K',
-        type: 'photo'
-      },
-      {
-        src: '/images/ugc2.jpg',
-        title: 'Before & After Transformation',
-        creator: 'Zehra Özkan',
-        brand: 'PureDerm',
-        engagement: '18.2K',
-        type: 'photo'
-      },
-      {
-        src: '/images/ugc3.jpg',
-        title: 'Morning Routine Tutorial',
-        creator: 'Elif Demir',
-        brand: 'HydraGlow',
-        engagement: '25.8K',
-        type: 'photo'
-      },
-      {
-        src: '/images/ugc4.jpg',
-        title: 'Product Review & Demo',
-        creator: 'Seda Yılmaz',
-        brand: 'ClearSkin',
-        engagement: '31.4K',
-        type: 'photo'
-      }
-    ],
-    videos: [
-      {
-        src: '/videos/ugc1.mp4',
-        thumbnail: '/images/ugc1.jpg',
-        title: 'Skincare Morning Routine',
-        creator: 'Ayşe Kaya',
-        brand: 'GlowSkin',
-        engagement: '45.2K',
-        type: 'video'
-      },
-      {
-        src: '/videos/ugc2.mp4',
-        thumbnail: '/images/ugc2.jpg',
-        title: 'Product Unboxing & First Impressions',
-        creator: 'Zehra Özkan',
-        brand: 'PureDerm',
-        engagement: '38.7K',
-        type: 'video'
-      },
-      {
-        src: '/videos/ugc3.mp4',
-        thumbnail: '/images/ugc3.jpg',
-        title: 'Get Ready With Me - Skincare Edition',
-        creator: 'Elif Demir',
-        brand: 'HydraGlow',
-        engagement: '52.3K',
-        type: 'video'
-      },
-      {
-        src: '/videos/ugc4.mp4',
-        thumbnail: '/images/ugc4.jpg',
-        title: '30-Day Skincare Challenge Results',
-        creator: 'Seda Yılmaz',
-        brand: 'ClearSkin',
-        engagement: '67.1K',
-        type: 'video'
-      }
-    ]
-  }
+  const categories = [
+    { id: 'all', label: 'All Content', icon: Camera },
+    { id: 'reels', label: 'Video Content', icon: Video },
+    { id: 'posts', label: 'Photo Content', icon: Camera }
+  ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+  const portfolioItems = [
+    {
+      id: 1,
+      title: "Morning Routine with GlowSkin",
+      category: "reels",
+      image: "/images/ugc1.jpg",
+      video: "/videos/ugc1.mp4",
+      brand: "GlowSkin",
+      creator: "@skincare_queen_tr",
+      avatar: "/images/hero-01.jpg",
+      followers: "245K",
+      metrics: {
+        likes: "47.2K",
+        comments: "2.1K",
+        shares: "8.7K",
+        views: "2.3M"
+      },
+      type: "video",
+      roas: "385%",
+      engagement: "12.4%",
+      duration: "0:45",
+      description: "Authentic morning skincare routine featuring GlowSkin vitamin C serum"
+    },
+    {
+      id: 2,
+      title: "Before & After: 30 Days with PureDerm",
+      category: "posts",
+      image: "/images/ugc2.jpg",
+      brand: "PureDerm",
+      creator: "@real_skin_journey",
+      avatar: "/images/hero-02.jpg",
+      followers: "128K",
+      metrics: {
+        likes: "23.8K",
+        comments: "1.4K",
+        shares: "3.2K",
+        views: "890K"
+      },
+      type: "image",
+      roas: "420%",
+      engagement: "8.7%",
+      description: "30-day transformation using PureDerm acne treatment system"
+    },
+    {
+      id: 3,
+      title: "Hydration Heroes ft. AquaGlow",
+      category: "reels",
+      image: "/images/ugc3.jpg",
+      video: "/videos/ugc3.mp4",
+      brand: "AquaGlow",
+      creator: "@hydrated_skin_babe",
+      avatar: "/images/hero-03.jpg",
+      followers: "312K",
+      metrics: {
+        likes: "65.1K",
+        comments: "3.7K",
+        shares: "12.3K",
+        views: "4.1M"
+      },
+      type: "video",
+      roas: "295%",
+      engagement: "15.2%",
+      duration: "1:20",
+      description: "Comprehensive review of AquaGlow's hydration collection"
+    },
+    {
+      id: 4,
+      title: "Gentle Cleansing with ClearSkin",
+      category: "posts",
+      image: "/images/ugc4.jpg",
+      brand: "ClearSkin",
+      creator: "@sensitive_skin_solutions",
+      avatar: "/images/hero-04.jpg",
+      followers: "89K",
+      metrics: {
+        likes: "18.6K",
+        comments: "892",
+        shares: "2.1K",
+        views: "567K"
+      },
+      type: "image",
+      roas: "340%",
+      engagement: "9.8%",
+      description: "Sensitive skin routine featuring ClearSkin gentle cleanser"
     }
-  }
+  ]
 
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8
-      }
-    }
-  }
+  const filteredItems = activeCategory === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeCategory)
 
   return (
-    <section id="portfolio" className="py-20 bg-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 bg-gray-800 overflow-hidden" id="portfolio">
+      
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-40 left-10 w-24 h-24 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-2xl" />
+        <div className="absolute bottom-40 right-10 w-32 h-32 bg-gradient-to-r from-blue-500/30 to-teal-500/30 rounded-full blur-2xl" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        
+        {/* Section header */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8 }}
           className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          <span className="text-orange-500 font-semibold text-lg">Our Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            Authentic Content That
-            <span className="text-orange-500"> Drives Results</span>
+          <div className="inline-flex items-center gap-3 bg-gray-700/80 backdrop-blur-sm rounded-full px-6 py-3 border border-gray-600 shadow-sm mb-6">
+            <Award className="w-5 h-5 text-purple-400" />
+            <span className="text-gray-200 font-semibold">Our Work</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Creator
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              Success Stories
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how our talented creators have brought brands to life through 
-            compelling, authentic user-generated content.
+          
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Real results from authentic collaborations. See how our creators turn skincare passion 
+            into powerful brand partnerships that drive engagement and sales.
           </p>
         </motion.div>
 
-        {/* Tab Navigation */}
+        {/* Category filters */}
         <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
         >
-          <div className="bg-gray-100 rounded-full p-1 flex">
-            <button
-              onClick={() => setActiveTab('photos')}
-              className={`px-8 py-3 rounded-full font-semibold transition-all ${
-                activeTab === 'photos'
-                  ? 'bg-orange-500 text-white shadow-lg'
-                  : 'text-gray-600 hover:text-orange-500'
-              }`}
-            >
-              Photo Content
-            </button>
-            <button
-              onClick={() => setActiveTab('videos')}
-              className={`px-8 py-3 rounded-full font-semibold transition-all ${
-                activeTab === 'videos'
-                  ? 'bg-orange-500 text-white shadow-lg'
-                  : 'text-gray-600 hover:text-orange-500'
-              }`}
-            >
-              Video Content
-            </button>
+          <div className="bg-gray-700/80 backdrop-blur-sm rounded-xl p-1 flex gap-1">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-purple-600 text-white shadow-sm'
+                    : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                <category.icon className="w-4 h-4" />
+                {category.label}
+              </button>
+            ))}
           </div>
         </motion.div>
 
-        {/* Portfolio Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {portfolioItems[activeTab as keyof typeof portfolioItems].map((item, index) => (
+        {/* Portfolio grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {filteredItems.map((item, index) => (
             <motion.div
-              key={`${activeTab}-${index}`}
-              variants={itemVariants}
-              className="group cursor-pointer"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              key={item.id}
+              className="group bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-lg bg-white">
-                {/* Image/Video Thumbnail */}
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={item.type === 'video' ? (item as any).thumbnail : item.src}
-                    alt={item.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  
-                  {/* Video Play Button */}
-                  {item.type === 'video' && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 text-orange-500 ml-1" />
-                      </div>
-                    </div>
-                  )}
+              {/* Content preview */}
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                
+                {/* Video indicator */}
+                {item.type === 'video' && (
+                  <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                    <Play className="w-3 h-3" />
+                    {item.duration}
+                  </div>
+                )}
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center justify-between text-white">
-                        <div className="text-sm font-medium">{item.engagement} engagements</div>
-                        <ExternalLink className="w-4 h-4" />
+                {/* Platform indicator */}
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-full">
+                  <Instagram className="w-4 h-4" />
+                </div>
+
+                {/* Engagement overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="flex items-center justify-between text-white text-sm">
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-1">
+                          <Heart className="w-4 h-4" />
+                          {item.metrics.likes}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="w-4 h-4" />
+                          {item.metrics.comments}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Eye className="w-4 h-4" />
+                          {item.metrics.views}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Content Info */}
-                <div className="p-6">
-                  <h3 className="font-bold text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="flex justify-between items-center text-sm text-gray-600">
-                    <span>by {item.creator}</span>
-                    <span className="font-semibold text-orange-500">{item.brand}</span>
+              {/* Content info */}
+              <div className="p-6">
+                {/* Creator info */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 relative rounded-full overflow-hidden">
+                    <Image
+                      src={item.avatar}
+                      alt={item.creator}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{item.creator}</div>
+                    <div className="text-sm text-gray-500">{item.followers} followers</div>
+                  </div>
+                  <div className="ml-auto text-right">
+                    <div className="text-sm font-medium text-purple-600">{item.brand}</div>
+                    <div className="text-xs text-gray-500">Brand Partner</div>
+                  </div>
+                </div>
+
+                {/* Content title */}
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2">{item.description}</p>
+
+                {/* Performance metrics */}
+                <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-xl">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-600">{item.roas}</div>
+                    <div className="text-xs text-gray-500 font-medium">ROAS</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-600">{item.engagement}</div>
+                    <div className="text-xs text-gray-500 font-medium">Engagement</div>
                   </div>
                 </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Stats Section */}
+        {/* CTA section */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl p-12 text-center text-white"
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold mb-8">Campaign Results That Speak for Themselves</h3>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-4xl font-bold mb-2">2.5M+</div>
-              <div className="text-orange-100">Total Reach</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">350%</div>
-              <div className="text-orange-100">Avg. Engagement Increase</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">95%</div>
-              <div className="text-orange-100">Client Retention Rate</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">4.8/5</div>
-              <div className="text-orange-100">Average Rating</div>
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Ready to Create Your Success Story?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Join our network of successful creators and start earning from your skincare passion. 
+              Professional support, premium brands, competitive rates.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Apply as Creator
+              </motion.button>
+              <motion.button 
+                className="bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View Brand Options
+              </motion.button>
             </div>
           </div>
         </motion.div>

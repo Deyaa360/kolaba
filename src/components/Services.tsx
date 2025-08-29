@@ -1,156 +1,220 @@
 'use client'
 
+import React from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Camera, Video, Megaphone, BarChart3, Sparkles, Shield } from 'lucide-react'
+import { Users, TrendingUp, Star, Clock, Award, CheckCircle, Camera, Video, DollarSign, Target } from 'lucide-react'
 
 export default function Services() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-
-  const services = [
+  const creatorServices = [
     {
       icon: Camera,
-      title: "Photo Content Creation",
-      description: "High-quality product photography and lifestyle shots that showcase your skincare products in authentic, relatable settings.",
-      features: ["Product styling", "Lifestyle photography", "Before/after shots", "Flat lay compositions"]
+      title: "Content Creation",
+      description: "Create authentic skincare content that resonates with Turkish audiences",
+      features: ["Photo & video content", "Story highlights", "Reels & TikToks", "Tutorial content"]
     },
     {
-      icon: Video,
-      title: "Video Content Production",
-      description: "Engaging video content including tutorials, reviews, and unboxing experiences that drive engagement and conversions.",
-      features: ["Tutorial videos", "Product reviews", "Unboxing content", "Day-in-the-life vlogs"]
+      icon: DollarSign,
+      title: "Earn $500-2,000",
+      description: "Competitive rates for quality content with top skincare brands",
+      features: ["Per campaign payments", "Bonus opportunities", "Long-term partnerships", "Performance incentives"]
     },
     {
-      icon: Megaphone,
-      title: "Social Media Campaigns",
-      description: "Comprehensive social media strategies with authentic content that resonates with Turkish audiences across all platforms.",
-      features: ["Instagram campaigns", "TikTok content", "Stories & Reels", "Cross-platform strategy"]
-    },
-    {
-      icon: BarChart3,
-      title: "Performance Analytics",
-      description: "Detailed reporting and analytics to track campaign performance and measure ROI with actionable insights.",
-      features: ["Engagement metrics", "Reach analysis", "Conversion tracking", "ROI reporting"]
-    },
-    {
-      icon: Sparkles,
-      title: "Brand Collaboration",
-      description: "Strategic partnerships that align with your brand values and create authentic connections with your target audience.",
-      features: ["Brand alignment", "Content strategy", "Creator matching", "Campaign planning"]
-    },
-    {
-      icon: Shield,
-      title: "Quality Assurance",
-      description: "Rigorous content review and approval process ensuring all content meets brand guidelines and quality standards.",
-      features: ["Content review", "Brand compliance", "Quality control", "Approval workflow"]
+      icon: Award,
+      title: "Professional Support",
+      description: "Full creative and technical support throughout your creator journey",
+      features: ["Content strategy", "Brand guidelines", "Technical assistance", "Growth coaching"]
     }
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+  const brandServices = [
+    {
+      icon: Target,
+      title: "UGC Campaigns",
+      description: "Authentic user-generated content that drives real conversions",
+      features: ["Vetted creators", "Brand compliance", "Content approval", "Performance tracking"]
+    },
+    {
+      icon: TrendingUp,
+      title: "300% Average ROAS",
+      description: "Measurable results with transparent reporting and analytics",
+      features: ["Performance metrics", "ROI tracking", "Audience insights", "Campaign optimization"]
+    },
+    {
+      icon: Clock,
+      title: "3-7 Day Delivery",
+      description: "Fast turnaround times without compromising on quality",
+      features: ["Quick onboarding", "Efficient workflows", "Quality control", "Timely delivery"]
     }
-  }
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8
-      }
-    }
-  }
+  ]
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-orange-50 to-orange-100" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 bg-gray-800 overflow-hidden" id="services">
+      
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-blue-500/30 to-teal-500/30 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        
+        {/* Section header */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8 }}
           className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          <span className="text-orange-500 font-semibold text-lg">Our Services</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            Complete UGC Solutions for
-            <span className="text-orange-500"> Skincare Brands</span>
+          <div className="inline-flex items-center gap-3 bg-gray-700/80 backdrop-blur-sm rounded-full px-6 py-3 border border-gray-600 shadow-sm mb-6">
+            <Star className="w-5 h-5 text-purple-400" />
+            <span className="text-gray-200 font-semibold">Our Services</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Perfect for
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              Every Partnership
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From concept to execution, we provide end-to-end content creation services 
-            that help your brand connect authentically with Turkish consumers.
+          
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Whether you're a creator looking to monetize your skincare passion or a brand seeking 
+            authentic content, we have the perfect solution for you.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {services.map((service, index) => (
+        {/* Services grid */}
+        <div className="grid lg:grid-cols-2 gap-16 mb-16">
+          
+          {/* For Creators */}
+          <div>
             <motion.div
-              key={index}
-              variants={itemVariants}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-100 group hover:border-orange-200"
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-orange-100 rounded-2xl mb-6 group-hover:bg-orange-200 transition-colors">
-                <service.icon className="w-8 h-8 text-orange-500" />
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-white" />
               </div>
-              
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
-              
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-              
-              <ul className="space-y-2">
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                    <div className="w-2 h-2 bg-orange-400 rounded-full mr-3 flex-shrink-0"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <motion.button
-                className="mt-6 w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Learn More
-              </motion.button>
+              <h3 className="text-2xl font-bold text-white mb-3">For Creators</h3>
+              <p className="text-gray-300">Turn your passion into profit with premium brand partnerships</p>
             </motion.div>
-          ))}
-        </motion.div>
+
+            <div className="space-y-6">
+              {creatorServices.map((service, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <service.icon className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-white mb-2">{service.title}</h4>
+                      <p className="text-gray-300 mb-4">{service.description}</p>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                            <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* For Brands */}
+          <div>
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-gray-700 to-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">For Brands</h3>
+              <p className="text-gray-300">Scale your marketing with authentic UGC that converts</p>
+            </motion.div>
+
+            <div className="space-y-6">
+              {brandServices.map((service, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <service.icon className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-white mb-2">{service.title}</h4>
+                      <p className="text-gray-300 mb-4">{service.description}</p>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                            <CheckCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* CTA Section */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 text-center"
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
         >
-          <div className="bg-white rounded-3xl p-12 shadow-xl border border-orange-100">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Ready to Transform Your Brand Story?
-            </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's create authentic, engaging content that resonates with your audience 
-              and drives real business results.
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
+            <p className="text-purple-100 mb-6 max-w-2xl mx-auto">
+              Join thousands of successful creators and brands who trust Kolaba for their UGC partnerships.
             </p>
-            <motion.button
-              className="bg-orange-500 text-white px-12 py-4 rounded-full font-semibold text-lg hover:bg-orange-600 transition-colors shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Your Campaign Today
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button 
+                className="bg-white text-purple-600 px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Apply as Creator
+              </motion.button>
+              <motion.button 
+                className="bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold border-2 border-purple-500 hover:bg-purple-800 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Partner as Brand
+              </motion.button>
+            </div>
           </div>
         </motion.div>
       </div>
