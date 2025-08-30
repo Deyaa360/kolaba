@@ -33,8 +33,8 @@ export default function GlitchText({
       filter: 'none'
     },
     glitch: {
-      x: [0, -config.offset * 0.5, config.offset * 0.5, -config.offset * 0.5, 0],
-      y: [0, config.offset * 0.3, -config.offset * 0.3, config.offset * 0.3, 0],
+      x: [0, -config.offset, config.offset, -config.offset, 0],
+      y: [0, config.offset, -config.offset, config.offset, 0],
       filter: [
         'none',
         'hue-rotate(90deg) saturate(200%)',
@@ -47,28 +47,23 @@ export default function GlitchText({
 
   return (
     <div className={`relative inline-block ${className}`}>
-      {/* Invisible padding container to prevent boundary visibility */}
-      <div className="relative overflow-hidden" style={{ 
-        padding: `${config.offset + 1}px ${config.offset * 2 + 2}px`,
-        margin: `-${config.offset + 1}px -${config.offset * 2 + 2}px`
-      }}>
-        {/* Main text layer */}
-        <motion.div
-          className="relative z-30"
-          variants={glitchVariants}
-          animate={continuous ? 'glitch' : 'normal'}
-          transition={
-            continuous
-              ? {
-                  repeat: Infinity,
-                  repeatDelay: config.interval,
-                  duration: config.duration,
-                  ease: 'easeInOut'
-                }
-              : { duration: config.duration, ease: 'easeInOut' }
-          }
-          whileHover={hoverOnly ? 'glitch' : undefined}
-        >
+      {/* Main text layer */}
+      <motion.div
+        className="relative z-30"
+        variants={glitchVariants}
+        animate={continuous ? 'glitch' : 'normal'}
+        transition={
+          continuous
+            ? {
+                repeat: Infinity,
+                repeatDelay: config.interval,
+                duration: config.duration,
+                ease: 'easeInOut'
+              }
+            : { duration: config.duration, ease: 'easeInOut' }
+        }
+        whileHover={hoverOnly ? 'glitch' : undefined}
+      >
         {children}
       </motion.div>
 
@@ -82,7 +77,7 @@ export default function GlitchText({
         variants={{
           normal: { x: 0, opacity: 0 },
           glitch: { 
-            x: [-config.offset * 1.5, -config.offset * 2, -config.offset * 1.5], 
+            x: [-config.offset * 2, -config.offset * 3, -config.offset * 2], 
             opacity: [0, 0.9, 0.7, 0]
           }
         }}
@@ -112,7 +107,7 @@ export default function GlitchText({
         variants={{
           normal: { x: 0, opacity: 0 },
           glitch: { 
-            x: [config.offset * 1.5, config.offset * 2, config.offset * 1.5], 
+            x: [config.offset * 2, config.offset * 3, config.offset * 2], 
             opacity: [0, 0.9, 0.7, 0]
           }
         }}
@@ -164,7 +159,6 @@ export default function GlitchText({
         }
         whileHover={hoverOnly ? 'glitch' : undefined}
       />
-      </div>
     </div>
   )
 }
