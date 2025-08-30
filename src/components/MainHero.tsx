@@ -129,17 +129,28 @@ export default function MainHero() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Play className="w-5 h-5" />
+                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   See Our Work
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <motion.span
+                    className="inline-block"
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.span>
                 </motion.button>
                 <motion.button 
-                  className="group bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold text-lg border-2 border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 flex items-center justify-center gap-3"
+                  className="group bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <TrendingUp className="w-5 h-5" />
+                  <TrendingUp className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   Book a Pilot
+                  <motion.div
+                    className="w-2 h-2 bg-green-400 rounded-full"
+                    animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  />
                 </motion.button>
               </motion.div>
             </motion.div>
@@ -298,48 +309,13 @@ export default function MainHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.8 }}
         >
-          <div className="bg-white rounded-full px-6 py-3 shadow-lg border border-gray-200">
-            <div className="flex items-center gap-4 text-sm text-gray-600">
-              <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                <span className="font-semibold">4.9/5</span>
-              </div>
-              <div className="w-px h-4 bg-gray-300" />
-              <span className="font-medium">Trusted by 50+ brands</span>
+          <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
+              <Star className="w-4 h-4 text-yellow-400 fill-current" />
+              <span className="font-semibold">Professional UGC Platform</span>
             </div>
           </div>
         </motion.div>
-      </section>
-
-      {/* Client logos section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-8">
-              Trusted by leading skincare brands
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-              {['GlowSkin', 'PureDerm', 'HydraGlow', 'ClearSkin'].map((brand, index) => (
-                <motion.div
-                  key={brand}
-                  className="text-2xl font-bold text-gray-400 text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  {brand}
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
       </section>
     </div>
   )

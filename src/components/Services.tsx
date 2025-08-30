@@ -107,26 +107,41 @@ export default function Services() {
               {creatorServices.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300"
+                  className="group bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 relative overflow-hidden"
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <service.icon className="w-6 h-6 text-purple-600" />
-                    </div>
+                  {/* Hover gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10 flex items-start gap-4">
+                    <motion.div 
+                      className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <service.icon className="w-6 h-6 text-white" />
+                    </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-white mb-2">{service.title}</h4>
+                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
+                        {service.title}
+                      </h4>
                       <p className="text-gray-300 mb-4">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                          <motion.li 
+                            key={featureIndex} 
+                            className="flex items-center gap-2 text-sm text-gray-300"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + (featureIndex * 0.1) }}
+                          >
                             <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
                             {feature}
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
@@ -156,26 +171,41 @@ export default function Services() {
               {brandServices.map((service, index) => (
                 <motion.div
                   key={index}
-                  className="bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl transition-all duration-300"
+                  className="group bg-gray-700/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-600 hover:shadow-xl hover:border-blue-500/50 transition-all duration-300 relative overflow-hidden"
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <service.icon className="w-6 h-6 text-blue-600" />
-                    </div>
+                  {/* Hover gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10 flex items-start gap-4">
+                    <motion.div 
+                      className="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <service.icon className="w-6 h-6 text-white" />
+                    </motion.div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-white mb-2">{service.title}</h4>
+                      <h4 className="text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                        {service.title}
+                      </h4>
                       <p className="text-gray-300 mb-4">{service.description}</p>
                       <ul className="space-y-2">
                         {service.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-300">
+                          <motion.li 
+                            key={featureIndex} 
+                            className="flex items-center gap-2 text-sm text-gray-300"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 + (featureIndex * 0.1) }}
+                          >
                             <CheckCircle className="w-4 h-4 text-blue-400 flex-shrink-0" />
                             {feature}
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
