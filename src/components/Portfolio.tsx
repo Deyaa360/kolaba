@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Play, Heart, Share2, MessageCircle, TrendingUp, Users, Eye, Camera, Video, Instagram, Clock, Award } from 'lucide-react'
 import Image from 'next/image'
 import { getAssetPath } from '@/utils/paths'
+import GlitchText from './GlitchText'
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -131,10 +132,14 @@ export default function Portfolio() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Creator
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Success Stories
-            </span>
+            <GlitchText intensity="medium" continuous={true}>
+              Creator
+            </GlitchText>
+            <GlitchText intensity="high" continuous={true}>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Success Stories
+              </span>
+            </GlitchText>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

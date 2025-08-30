@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Star, Quote, TrendingUp, Users, Award, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
 import { getAssetPath } from '@/utils/paths'
+import GlitchText from './GlitchText'
 
 export default function Testimonials() {
   const testimonials = [
@@ -76,19 +77,23 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="inline-flex items-center gap-3 bg-white rounded-full px-6 py-3 border border-gray-200 shadow-sm mb-6">
+          <div className="inline-flex items-center gap-3 bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 border border-gray-600 shadow-sm mb-6">
             <Star className="w-5 h-5 text-yellow-500" />
-            <span className="text-gray-700 font-semibold">Client Success</span>
+            <span className="text-gray-200 font-semibold">Client Success</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Success Stories from
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-              Our Community
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <GlitchText intensity="medium" continuous={true}>
+              Success Stories from
+            </GlitchText>
+            <GlitchText intensity="high" continuous={true}>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Our Community
+              </span>
+            </GlitchText>
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Real feedback from our community of successful creators and satisfied brand partners 
             who've achieved their goals through our platform.
           </p>

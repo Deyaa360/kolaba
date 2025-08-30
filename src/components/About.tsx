@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Users, TrendingUp, Heart, Target, Star, CheckCircle, Award, Shield, Clock } from 'lucide-react'
+import GlitchText from './GlitchText'
 
 export default function About() {
   return (
@@ -29,10 +30,14 @@ export default function About() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Perfect for
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Creators & Brands
-            </span>
+            <GlitchText intensity="medium" continuous={true}>
+              Perfect for
+            </GlitchText>
+            <GlitchText intensity="high" continuous={true}>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Creators & Brands
+              </span>
+            </GlitchText>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
