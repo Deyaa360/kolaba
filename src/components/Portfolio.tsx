@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Play, Heart, Share2, MessageCircle, TrendingUp, Users, Eye, Camera, Video, Instagram, Clock, Award } from 'lucide-react'
 import Image from 'next/image'
+import { getAssetPath } from '@/utils/paths'
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -19,11 +20,11 @@ export default function Portfolio() {
       id: 1,
       title: "Morning Routine with GlowSkin",
       category: "reels",
-      image: "/images/ugc1.jpg",
-      video: "/videos/ugc1.mp4",
+      image: getAssetPath("/images/ugc1.jpg"),
+      video: getAssetPath("/videos/ugc1.mp4"),
       brand: "GlowSkin",
       creator: "@skincare_queen_tr",
-      avatar: "/images/hero-01.jpg",
+      avatar: getAssetPath("/images/hero-01.jpg"),
       followers: "245K",
       metrics: {
         likes: "47.2K",
@@ -41,10 +42,10 @@ export default function Portfolio() {
       id: 2,
       title: "Before & After: 30 Days with PureDerm",
       category: "posts",
-      image: "/images/ugc2.jpg",
+      image: getAssetPath("/images/ugc2.jpg"),
       brand: "PureDerm",
       creator: "@real_skin_journey",
-      avatar: "/images/hero-02.jpg",
+      avatar: getAssetPath("/images/hero-02.jpg"),
       followers: "128K",
       metrics: {
         likes: "23.8K",
@@ -61,11 +62,11 @@ export default function Portfolio() {
       id: 3,
       title: "Hydration Heroes ft. AquaGlow",
       category: "reels",
-      image: "/images/ugc3.jpg",
-      video: "/videos/ugc3.mp4",
+      image: getAssetPath("/images/ugc3.jpg"),
+      video: getAssetPath("/videos/ugc3.mp4"),
       brand: "AquaGlow",
       creator: "@hydrated_skin_babe",
-      avatar: "/images/hero-03.jpg",
+      avatar: getAssetPath("/images/hero-03.jpg"),
       followers: "312K",
       metrics: {
         likes: "65.1K",
@@ -83,10 +84,10 @@ export default function Portfolio() {
       id: 4,
       title: "Gentle Cleansing with ClearSkin",
       category: "posts",
-      image: "/images/ugc4.jpg",
+      image: getAssetPath("/images/ugc4.jpg"),
       brand: "ClearSkin",
       creator: "@sensitive_skin_solutions",
-      avatar: "/images/hero-04.jpg",
+      avatar: getAssetPath("/images/hero-04.jpg"),
       followers: "89K",
       metrics: {
         likes: "18.6K",

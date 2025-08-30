@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowRight, Play, Users, TrendingUp, CheckCircle, Clock, Target, Heart, Share2, Star } from 'lucide-react'
+import { getAssetPath } from '@/utils/paths'
 
 export default function MainHero() {
   return (
@@ -175,7 +176,7 @@ export default function MainHero() {
                   >
                     <div className="relative h-full">
                       <Image
-                        src="/images/ugc1.jpg"
+                        src={getAssetPath("/images/ugc1.jpg")}
                         alt="Creator content"
                         fill
                         className="object-cover"
@@ -226,7 +227,7 @@ export default function MainHero() {
                   >
                     <div className="relative h-full">
                       <Image
-                        src="/images/ugc2.jpg"
+                        src={getAssetPath("/images/ugc2.jpg")}
                         alt="Creator content"
                         fill
                         className="object-cover"

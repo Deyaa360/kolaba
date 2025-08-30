@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Instagram, Twitter, Linkedin, Mail, MapPin } from 'lucide-react'
 import Image from 'next/image'
+import { getAssetPath } from '@/utils/paths'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -57,7 +58,7 @@ export default function Footer() {
               >
                 <div className="flex items-center space-x-3 mb-6">
                   <Image
-                    src="/images/logo.png"
+                    src={getAssetPath("/images/logo.png")}
                     alt="Kolaba"
                     width={40}
                     height={40}

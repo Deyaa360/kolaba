@@ -4,6 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Star, Quote, TrendingUp, Users, Award, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
+import { getAssetPath } from '@/utils/paths'
 
 export default function Testimonials() {
   const testimonials = [
@@ -12,7 +13,7 @@ export default function Testimonials() {
       name: "Sarah Johnson",
       role: "Marketing Director",
       company: "GlowSkin",
-      image: "/images/hero-01.jpg",
+      image: getAssetPath("/images/hero-01.jpg"),
       content: "Kolaba transformed our brand presence in Turkey. The creators delivered authentic content that drove a 250% increase in engagement and 340% ROAS.",
       rating: 5,
       metrics: { engagement: "+250%", roas: "340%", reach: "2.1M" }
@@ -22,7 +23,7 @@ export default function Testimonials() {
       name: "Ayşe Demir",
       role: "Skincare Creator",
       company: "@skincare_queen_tr",
-      image: "/images/hero-02.jpg",
+      image: getAssetPath("/images/hero-02.jpg"),
       content: "Through Kolaba, I've partnered with premium brands and earned over $15K in my first 6 months. The support team is incredible and the opportunities are endless.",
       rating: 5,
       metrics: { earnings: "$15K+", followers: "+50K", partnerships: "12" }
@@ -32,7 +33,7 @@ export default function Testimonials() {
       name: "Michael Chen",
       role: "Brand Manager", 
       company: "PureDerm",
-      image: "/images/hero-03.jpg",
+      image: getAssetPath("/images/hero-03.jpg"),
       content: "The quality of creators and seamless campaign management exceeded our expectations. Kolaba delivered measurable results with complete transparency.",
       rating: 5,
       metrics: { campaigns: "8", creators: "15", conversion: "+180%" }
@@ -42,7 +43,7 @@ export default function Testimonials() {
       name: "Zeynep Kaya",
       role: "Beauty Influencer",
       company: "@real_skin_journey",
-      image: "/images/hero-04.jpg",
+      image: getAssetPath("/images/hero-04.jpg"),
       content: "Kolaba helped me turn my passion into a career. Working with top skincare brands has been a dream come true, and the earnings are life-changing.",
       rating: 5,
       metrics: { campaigns: "20+", earnings: "$25K+", growth: "+120K" }
