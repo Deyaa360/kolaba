@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Users, TrendingUp, Star, Clock, Award, CheckCircle, Camera, Video, DollarSign, Target } from 'lucide-react'
+import GlitchText from './GlitchText'
 
 export default function Services() {
   const creatorServices = [
@@ -72,10 +73,14 @@ export default function Services() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Perfect for
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Every Partnership
-            </span>
+            <GlitchText intensity="low" continuous={true}>
+              Perfect for
+            </GlitchText>
+            <GlitchText intensity="medium" continuous={true}>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                Every Partnership
+              </span>
+            </GlitchText>
           </h2>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -127,7 +132,13 @@ export default function Services() {
                     </motion.div>
                     <div className="flex-1">
                       <h4 className="text-lg font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-                        {service.title}
+                        {service.title === "300% Average ROAS" ? (
+                          <GlitchText intensity="high" continuous={true}>
+                            {service.title}
+                          </GlitchText>
+                        ) : (
+                          service.title
+                        )}
                       </h4>
                       <p className="text-gray-300 mb-4">{service.description}</p>
                       <ul className="space-y-2">

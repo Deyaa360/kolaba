@@ -5,6 +5,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowRight, Play, Users, TrendingUp, CheckCircle, Clock, Target, Heart, Share2, Star } from 'lucide-react'
 import { getAssetPath } from '@/utils/paths'
+import GlitchText from './GlitchText'
+import GlitchButton from './GlitchButton'
 
 export default function MainHero() {
   return (
@@ -54,7 +56,7 @@ export default function MainHero() {
                 </div>
               </motion.div>
               
-              {/* Professional headline */}
+              {/* Professional headline with glitch effect */}
               <div className="space-y-6">
                 <motion.h1 
                   className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white"
@@ -62,10 +64,14 @@ export default function MainHero() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
                 >
-                  <span className="block">Authentic UGC</span>
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-                    That Converts
-                  </span>
+                  <GlitchText intensity="medium" continuous={true}>
+                    <span className="block">Authentic UGC</span>
+                  </GlitchText>
+                  <GlitchText intensity="high" continuous={true}>
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                      That Converts
+                    </span>
+                  </GlitchText>
                 </motion.h1>
                 <motion.p 
                   className="text-xl text-gray-300 font-medium leading-relaxed max-w-xl"
@@ -118,41 +124,34 @@ export default function MainHero() {
                 ))}
               </motion.div>
 
-              {/* Clean CTAs */}
+              {/* Clean CTAs with glitch effect */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.3, duration: 0.6 }}
               >
-                <motion.button 
-                  className="group bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <GlitchButton variant="primary">
+                  <Play className="w-5 h-5" />
                   See Our Work
                   <motion.span
                     className="inline-block"
                     animate={{ x: [0, 3, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5" />
                   </motion.span>
-                </motion.button>
-                <motion.button 
-                  className="group bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold text-lg border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-3"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <TrendingUp className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                </GlitchButton>
+
+                <GlitchButton variant="secondary">
+                  <TrendingUp className="w-5 h-5" />
                   Book a Pilot
                   <motion.div
                     className="w-2 h-2 bg-green-400 rounded-full"
                     animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                </motion.button>
+                </GlitchButton>
               </motion.div>
             </motion.div>
 
